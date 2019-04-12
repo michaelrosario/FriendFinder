@@ -17,8 +17,9 @@ var app = express();
 var PORT = process.env.PORT || 8080;
 
 // Sets up the Express app to handle data parsing
-app.use(express.urlencoded({ extended: true }));
-app.use(express.json());
+app.use(express.urlencoded({ extended: true, limit: '4mb' }));
+app.use(express.json({limit: '4mb'}));
+
 
 // ================================================================================
 // ROUTER
