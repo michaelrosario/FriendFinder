@@ -1,5 +1,5 @@
 var friendsArray = [{
-    "name":"RAFAEL CARO-QUINTERO",
+    "name":"Rafael Caro Quintero",
     "photo":"https://www.fbi.gov/wanted/topten/rafael-caro-quintero/@@images/image/preview",
     "scores":[
         5,
@@ -14,7 +14,7 @@ var friendsArray = [{
         1
       ]
   },{
-    "name":"ALEXIS FLORES",
+    "name":"Alexis Flores",
     "photo":"https://www.fbi.gov/wanted/topten/alexis-flores/@@images/image/preview",
     "scores":[
         4,
@@ -29,7 +29,7 @@ var friendsArray = [{
         4
       ]
   },{
-    "name":"SANTIAGO VILLALBA MEDEROS",
+    "name":"Santiago Villalba Medros",
     "photo":"https://www.fbi.gov/wanted/topten/santiago-mederos/@@images/image/preview",
     "scores":[
         3,
@@ -42,6 +42,21 @@ var friendsArray = [{
         4,
         1,
         4
+      ]
+  },{
+    "name":"Jason Derek Brown",
+    "photo":"https://en.wikipedia.org/wiki/FBI_Ten_Most_Wanted_Fugitives#/media/File:Age_accelerated_image_of_Jason_Derek_Brown.jpg",
+    "scores":[
+        1,
+        4,
+        5,
+        3,
+        4,
+        2,
+        5,
+        3,
+        3,
+        5
       ]
   }];
 

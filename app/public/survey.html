@@ -1,61 +1,63 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <title>Friend Finder</title>
-  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">\
-  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css" integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf" crossorigin="anonymous">
-  <link href="https://unpkg.com/filepond/dist/filepond.css" rel="stylesheet">
-  <link href="https://unpkg.com/filepond-plugin-image-preview/dist/filepond-plugin-image-preview.css" rel="stylesheet">
+    <meta charset="UTF-8">
+    <title>Friend Finder</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">\
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css" integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf" crossorigin="anonymous">
+    <link href="https://unpkg.com/filepond/dist/filepond.css" rel="stylesheet">
+    <link href="https://unpkg.com/filepond-plugin-image-preview/dist/filepond-plugin-image-preview.css" rel="stylesheet">
 
-  <style>
-      .container { margin: 5% auto; }
-      html,body { overflow-x: hidden; background: #000 url(https://images.unsplash.com/photo-1529156069898-49953e39b3ac?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=2378&q=80) fixed center center no-repeat; background-size: cover; }
-      .jumbotron {  background: rgba(255,255,255,0.85); border-radius: 10px; }
-      .jumbotron H1 { color: #000; }
-      .jumbotron H2 { color: #99DD11; }
-      label.input-group { border: 1px solid #CCC; border-radius: 5px; padding-top:}
-      label.input-group * { height: 35px; } 
-      .input-group-text { border: none;  }
-      .card-header i,
-      .card-header span { color: #565655; }
-      span.input-label { float: left; padding: 5px 0 5px 10px; }
-      .button { cursor: not-allowed; padding: 10px 40px; border-radius: 5px; background: #999; color: #CCC; text-decoration: none; }
-      .button:hover { cursor: not-allowed; color: #CCC; text-decoration: none; }
-      .button.ready {
-          font-weight: bold;
-          cursor: pointer;
-          background-color: greenyellow;
-          color: green;
-          border: 2px solid green;
-      }
-      .button.ready:hover {
-        cursor: pointer;
-        background-color: yellow;
-      }
-      input.has-error { border: 1px solid red; }
-      #survey { position: relative; }
-      .aboutMe { transition: all .9s; position: relative; }
-      .surveys {  transition: all .9s; position: absolute; top: 0px; margin-left: 1000%; min-width: 300px; }
-      .surveys.show { margin-left: 0px; width: 100%; }
-      .aboutMe.filled,
-      .surveys.filled { position: relative; margin-left: -1000% !important; max-width: 400px; float: left; }
-      .status-bar { overflow: hidden; background: #999; float: left; border: 1px solid #999; border-radius: 10px; width: 100%; height: 10px; margin: 0 0 30px 0; }
-      .status-bar .bar { transition: all 1s; background: greenyellow; float: left; height: 10px; }
-      .status-text { margin: 15px auto; border-radius: 50px; display: inline-block; color: #333; font-weight: bold; padding: 5px 30px; background: rgba(255,255,255,0.6); }
-      #status { display: none; }
-      .completeSurvey.ready { margin: -10px auto 0; font-size: 20px; }
-      .matching-results { padding: 50px 40px; }
-      .matching-results * { text-align: center; }
-      .matching-results #match-img { 
-        border-radius: 1000px;
-        border: 1px solid #999;
-        margin: 10px auto;
-        width: 30vw;
-        height: 30vw;
-      }
-  </style>
-</head>
+    <style>
+        .container { margin: 5% auto; }
+        html,body { overflow-x: hidden; background: #000 url(https://images.unsplash.com/photo-1529156069898-49953e39b3ac?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=2378&q=80) fixed center center no-repeat; background-size: cover; }
+        .jumbotron {  background: rgba(255,255,255,0.85); border-radius: 10px; }
+        .jumbotron H1 { color: #000; }
+        .jumbotron H2 { color: #99DD11; }
+        label.input-group { border: 1px solid #CCC; border-radius: 5px; padding-top:}
+        label.input-group * { height: 35px; } 
+        .input-group-text { border: none;  }
+        .card-header i,
+        .card-header span { color: #565655; }
+        span.input-label { float: left; padding: 5px 0 5px 10px; }
+        .button { cursor: not-allowed; padding: 10px 40px; border-radius: 5px; background: #999; color: #CCC; text-decoration: none; }
+        .button:hover { cursor: not-allowed; color: #CCC; text-decoration: none; }
+        .button.ready {
+            font-weight: bold;
+            cursor: pointer;
+            background-color: greenyellow;
+            color: green;
+            border: 2px solid green;
+        }
+        .button.ready:hover {
+            cursor: pointer;
+            background-color: yellow;
+        }
+        input.has-error { border: 1px solid red; }
+        #survey { position: relative; }
+        .aboutMe { transition: all .9s; position: relative; }
+        .surveys {  transition: all .9s; position: absolute; top: 0px; margin-left: 1000%; min-width: 300px; }
+        .surveys.show { margin-left: 0px; width: 100%; }
+        .aboutMe.filled,
+        .surveys.filled { position: relative; margin-left: -1000% !important; max-width: 400px; float: left; }
+        .status-bar { overflow: hidden; background: #999; float: left; border: 1px solid #999; border-radius: 10px; width: 100%; height: 10px; margin: 0 0 30px 0; }
+        .status-bar .bar { transition: all 1s; background: greenyellow; float: left; height: 10px; }
+        .status-text { margin: 15px auto; border-radius: 50px; display: inline-block; color: #333; font-weight: bold; padding: 5px 30px; background: rgba(255,255,255,0.6); }
+        #status { display: none; }
+        .completeSurvey.ready { margin: -10px auto 0; font-size: 20px; }
+        .matching-results { padding: 50px 40px; }
+        .matching-results * { text-align: center; }
+        .matching-results #match-img { 
+            border-radius: 1000px;
+            border: 1px solid #999;
+            margin: 10px auto;
+            width: 30vw;
+            height: 30vw;
+        }
+    </style>
+ </head>
 <body>
 
 <div class="container">
@@ -70,20 +72,20 @@
             <strong><i class="fas fa-user"></i> &nbsp; About Yourself</strong>
         </div>
         <div class="card-body">
-            <label for="name">Your Name</label>
+            <label for="name">Your Name*</label>
             <div class="input-group">
                 <input class="form-control fullName" name="name" id="name" value="" placeholder="" />
             </div>
             <br>
-            <label for="name">Photo</label>
+            <label for="name">Your Photo*</label>
             
              <input type="file" class="filepond" name="filepond"/>
                 <!-- <input class="form-control" name="name" id="name" value="" placeholder="" /> -->
-            <p class="text-center mt-5 mb-4"><a class="continueSurvey button disabled" href="#">Continue</a></p>
+             <p class="text-center mt-5 mb-4"><a class="continueSurvey button disabled" href="#">Continue</a></p>
+            <p class="text-right mb-0"><small>*Required fields</small></p>
         </div>
     </div>
    
-
     <div id="survey"></div>  
 
     <div id="status" class="text-center">
@@ -95,23 +97,20 @@
         </div>
         <p class="text-center mt-5 mb-4"><a class="completeSurvey button disabled" href="#">Find a Match</a></p>
     </div>
-
 </div>
 
-    <div id="results-modal" class="modal fade bd-example-modal-lg" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
-        <div class="modal-dialog modal-lg">
-          <div class="modal-content">
-              <div class="matching-results">
-                <h3>Congratulations. You are matched with:</h3>
-                <div id="match-img"></div>
-                <h1 id="match-name"></h1>
-                <p class="search mt-4"></p>
-             </div>
-          </div>
+<div id="results-modal" class="modal fade bd-example-modal-lg" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-lg">
+        <div class="modal-content">
+            <div class="matching-results">
+            <h3>Congratulations. You are matched with:</h3>
+            <div id="match-img"></div>
+            <h1 id="match-name"></h1>
+            <p class="search mt-4"></p>
+            </div>
         </div>
-      </div>
-
-
+    </div>
+</div>
 
 <!-- include jQuery library -->
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.js"></script>
@@ -177,7 +176,7 @@
                 'Same gender and race'
             ]
         },{
-            question: "If you won the lotto, what would be the firs thing you will do?",
+            question: "If you win the lotto, what would be the first thing you will do?",
             answers: [
                 'Pay off all my bills',
                 'Buy a new house',
@@ -273,133 +272,133 @@
         });
 
     }
-        
-          // First register any plugins
-          $.fn.filepond.registerPlugin(FilePondPluginImagePreview);
-          $.fn.filepond.registerPlugin(FilePondPluginFileEncode);
-          $.fn.filepond.registerPlugin(FilePondPluginFileValidateSize);
+    
+        // First register any plugins
+        $.fn.filepond.registerPlugin(FilePondPluginImagePreview);
+        $.fn.filepond.registerPlugin(FilePondPluginFileEncode);
+        $.fn.filepond.registerPlugin(FilePondPluginFileValidateSize);
 
-          $.fn.filepond.setDefaults({
-            maxFileSize: '3MB'
-          });
-      
-          // Turn input element into a pond
-          $('.filepond').filepond();
+        $.fn.filepond.setDefaults({
+        maxFileSize: '3MB'
+        });
+    
+        // Turn input element into a pond
+        $('.filepond').filepond();
 
-          $('.filepond').filepond('allowFileEncode',true);
-      
-          // Set allowMultiple property to true
-          $('.filepond').filepond('allowMultiple', false);
-        
-          // Listen for addfile event
-          $('.filepond').on('FilePond:addfile', function(e) {
-              console.log('file added event', e);
-              $('input').blur();
-              //console.log(e.detail.file.getFileEncodeDataURL());
-              file = e.detail.file.getFileEncodeDataURL();
-              checkContinue();
-              
-          });
-          /*
-          // Manually add a file using the addfile method
-          $('.filepond').first().filepond('addFile', 'index.html').then(function(file){
-            console.log('file added', file);
-          });
-          */
-
-          $(".fullName").on("change",function(){
-            fullname = $(this).val();
-            if(fullname.length > 2){
-                $(this).removeClass("has-error");
-                checkContinue();
-            } else {
-                $(this).addClass("has-error");
-            }
-          
-          })
-
-          function checkContinue(){
-              
-              if(file && fullname){
-                $(".continueSurvey").removeClass("disabled").addClass("ready");
-              } else {
-                $(".continueSurvey").removeClass("ready").addClass("disabled");
-              }
-          }
-
-          $(".continueSurvey").on("click",function(){
-            if($(this).hasClass('ready')){
-                $("#status").fadeIn();
-                updateStatusBar(currentSurvey,$(".surveys").length);
-                $(".surveys").eq(0).addClass("show");
-                var ht =  $(".surveys:visible").height();
-                $("#survey").css("height",ht+"px");
-                $(".aboutMe").addClass("filled");
-            }
-            return false;
-          });
-
-          function updateStatusBar(current,total){
-            var currentNum = parseInt(current);
-            var totalNum = parseInt(total);
-            if(totalNum == currentNum){
-                $(".status-text").html(`Click 'Find a Match' below to get results!`);
-                $("#survey").slideUp();
-                $(".status-bar").fadeOut();
-                $(".completeSurvey").removeClass("disabled").addClass("ready");
-                
-
-            } else {
-                $(".status-text").html(`${currentNum+1} of ${totalNum}`);
-            }
+        $('.filepond').filepond('allowFileEncode',true);
+    
+        // Set allowMultiple property to true
+        $('.filepond').filepond('allowMultiple', false);
+    
+        // Listen for addfile event
+        $('.filepond').on('FilePond:addfile', function(e) {
+            console.log('file added event', e);
+            $('input').blur();
+            //console.log(e.detail.file.getFileEncodeDataURL());
+            file = e.detail.file.getFileEncodeDataURL();
+            checkContinue();
             
-            var percent = (currentNum/totalNum).toFixed(2)*100+"%";
-            $(".bar").css("width",percent);
-            console.log(`setting bar to ${percent}`);
-          }
+        });
+        /*
+        // Manually add a file using the addfile method
+        $('.filepond').first().filepond('addFile', 'index.html').then(function(file){
+        console.log('file added', file);
+        });
+        */
 
-          function showNextQuestion(number){
+        $(".fullName").on("change",function(){
+        fullname = $(this).val();
+        if(fullname.length > 2){
+            $(this).removeClass("has-error");
+            checkContinue();
+        } else {
+            $(this).addClass("has-error");
+        }
+        
+        })
+
+        function checkContinue(){
+            
+            if(file && fullname){
+            $(".continueSurvey").removeClass("disabled").addClass("ready");
+            } else {
+            $(".continueSurvey").removeClass("ready").addClass("disabled");
+            }
+        }
+
+        $(".continueSurvey").on("click",function(){
+        if($(this).hasClass('ready')){
+            $("#status").fadeIn();
             updateStatusBar(currentSurvey,$(".surveys").length);
-            $(".surveys:visible").eq(currentSurvey-1).removeClass("show").addClass("filled");
-            $(".surveys").eq(currentSurvey).addClass("show");
-          }
+            $(".surveys").eq(0).addClass("show");
+            var ht =  $(".surveys:visible").height();
+            $("#survey").css("height",ht+"px");
+            $(".aboutMe").addClass("filled");
+        }
+        return false;
+        });
 
-          var submitted = false;
+        function updateStatusBar(current,total){
+        var currentNum = parseInt(current);
+        var totalNum = parseInt(total);
+        if(totalNum == currentNum){
+            $(".status-text").html(`Click 'Find a Match' below to get results!`);
+            $("#survey").slideUp();
+            $(".status-bar").fadeOut();
+            $(".completeSurvey").removeClass("disabled").addClass("ready");
+            
 
-          $(".completeSurvey").on("click",function(){
-                var scores = surveyAnswers;
-                var photo = file;
-                var name = fullname;
-                var userData = { name, photo, scores };
+        } else {
+            $(".status-text").html(`${currentNum+1} of ${totalNum}`);
+        }
+        
+        var percent = (currentNum/totalNum).toFixed(2)*100+"%";
+        $(".bar").css("width",percent);
+        console.log(`setting bar to ${percent}`);
+        }
 
-                if(submitted == false){
-                // AJAX post the data to the friends API.
-                    $.post("/api/friends", userData, function(data) {
+        function showNextQuestion(number){
+        updateStatusBar(currentSurvey,$(".surveys").length);
+        $(".surveys:visible").eq(currentSurvey-1).removeClass("show").addClass("filled");
+        $(".surveys").eq(currentSurvey).addClass("show");
+        }
 
-                        submitted = true;
-                        console.log(data);
-                        // Grab the result from the AJAX post so that the best match's name and photo are displayed.
-                        $("#match-name").text(data.name);
-                        $("#match-img").css({"background": "url("+data.photo+") center center no-repeat","background-size":"cover"});
-                        $(".search").html(`<a class="button ready" target="_blank" href="https://www.google.com/search?tbm=isch&q=${data.name}">Google your new friend!</a>`)
+        var submitted = false;
 
-                        // Show the modal with the best match
-                        $("#results-modal").modal("toggle");
+        $(".completeSurvey").on("click",function(){
+            var scores = surveyAnswers;
+            var photo = file;
+            var name = fullname;
+            var userData = { name, photo, scores };
 
-                    });
-                } else {
+            if(submitted == false){
+            // AJAX post the data to the friends API.
+                $.post("/api/friends", userData, function(data) {
 
+                    submitted = true;
+                    console.log(data);
+                    // Grab the result from the AJAX post so that the best match's name and photo are displayed.
+                    $("#match-name").text(data.name);
+                    $("#match-img").css({"background": "url("+data.photo+") center center no-repeat","background-size":"cover"});
+                    $(".search").html(`<a class="button ready" target="_blank" href="https://www.google.com/search?tbm=isch&q=${data.name}">Google your new friend!</a>`)
+
+                    // Show the modal with the best match
                     $("#results-modal").modal("toggle");
 
-                }
+                });
 
-                return false;
+            } else {
 
-            });
-        
+                $("#results-modal").modal("toggle");
+
+            }
+
+            return false;
+
         });
-      </script>
-
+    
+    });
+    </script>
 
 </body>
 </html>
