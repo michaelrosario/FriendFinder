@@ -1,9 +1,10 @@
-var file = '';      // filename 
-    var fullname = ''; // fullname
-    var surveyAnswers = [];
-    var currentSurvey = 0;
-        
-    var survey = [{
+var file = '';          // filename 
+var fullname = '';      // fullname
+var surveyAnswers = []; // container for use input
+var currentSurvey = 0;  // keep track of current survey question
+
+// survey question and choices        
+var survey = [{
             question: "If you are a drink, what would you be?",
             answers: [
                 'Water',
@@ -96,6 +97,7 @@ var file = '';      // filename
         }];
 
     
+    // iterate over the survey questions and anwers and generate HTML
     for(var i = 0; i < survey.length; i++){
         var currentCount = i+1;
         var currentQuestion = `<span>Question ${currentCount}</span>: ${survey[i].question}`;

@@ -45,7 +45,7 @@ var friendsArray = [{
       ]
   },{
     "name":"Jason Derek Brown",
-    "photo":"https://en.wikipedia.org/wiki/FBI_Ten_Most_Wanted_Fugitives#/media/File:Age_accelerated_image_of_Jason_Derek_Brown.jpg",
+    "photo":"https://upload.wikimedia.org/wikipedia/commons/6/66/Age_accelerated_image_of_Jason_Derek_Brown.jpg",
     "scores":[
         1,
         4,
